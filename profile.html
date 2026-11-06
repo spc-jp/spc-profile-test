@@ -175,6 +175,21 @@
     }
     @media(max-width:480px){.brand-text{font-size:.79rem}.brand-text small{font-size:.53rem}.brand-mark{height:40px;width:40px}.hero-actions,.connect-buttons{flex-direction:column}.hero-actions .btn,.connect-buttons .btn{width:100%}.hero-photo{aspect-ratio:1.22;object-position:38% center}.metrics{border-radius:7px}.metric{padding:18px 4px}.metric strong{font-size:1.22rem}.metric strong span{display:block;margin:0;font-size:.64rem;text-align:center}.metric small{font-size:.64rem}.services-grid{grid-template-columns:1fr}.section-title{font-size:1.65rem}.hero-title{font-size:2.02rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+  
+    /* SPC 代表写真のサイズ調整：PC・スマートフォン共通 */
+    .hero-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(28px,4vw,58px)}
+    .hero-photo-frame{width:100%;max-width:300px;justify-self:center;margin:0 auto}
+    .hero-photo{display:block;width:100%;aspect-ratio:1/1;max-height:290px;object-fit:cover;object-position:36% 42%}
+    @media(max-width:768px){
+      .hero-grid{grid-template-columns:1fr;gap:30px}
+      .hero-photo-frame{max-width:250px;width:75%;margin:0 auto;padding-bottom:16px}
+      .hero-photo{aspect-ratio:1/1;max-height:245px;object-position:36% 40%}
+    }
+    @media(max-width:480px){
+      .hero-photo-frame{max-width:220px;width:72%}
+      .hero-photo{max-height:215px;object-position:36% 41%}
+      .hero-photo-text{left:12px;font-size:.57rem;padding:7px 9px}
+    }
   </style>
 </head>
 <body>
