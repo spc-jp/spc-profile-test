@@ -177,24 +177,31 @@
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
   
 
-    /* 2026-11 プロフィールの第一印象：写真を小さな署名用アバターに変更 */
-    .hero { padding: 79px 0 103px; }
-    .hero-grid { display:block; max-width: 980px; }
-    .hero-title { max-width: 880px; font-size:clamp(2.15rem,4.15vw,3.65rem); }
-    .hero-title br { display:none; }
-    .hero-title br::after { content:" "; }
-    .hero-desc { max-width: 790px; }
-    .hero-sign { max-width: 790px; display:flex; align-items:center; gap:17px; }
-    .hero-sign .english { margin-left:auto; }
-    .hero-avatar { width:112px; height:112px; min-width:112px; border-radius:50%; object-fit:cover; object-position:37% 40%; border:2px solid rgba(255,255,255,.65); box-shadow:0 3px 14px rgba(0,0,0,.17); }
-    @media(max-width:760px) {
-      .hero {padding:53px 0 78px;}
-      .hero-sign {gap:13px;}
-      .hero-sign strong {font-size:1.12rem;}
-      .hero-sign .english { display:none; }
-      .hero-avatar {width:80px;height:80px;min-width:80px;}
-      .hero-title {font-size:clamp(1.9rem,6.3vw,2.6rem);}
-      .hero-title br {display:none;}
+
+    /* 2026-11 顔写真を控えめな中サイズに：本文が主役の2カラム */
+    .hero{padding:80px 0 95px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:clamp(30px,5vw,70px);max-width:1080px;align-items:center}
+    .hero-title{font-size:clamp(2.05rem,3.4vw,3.1rem);line-height:1.6;max-width:none}
+    .hero-desc{max-width:670px;margin-bottom:26px}
+    .hero-sign{max-width:670px;justify-content:space-between}
+    .hero-sign .english{margin-left:auto}
+    .hero-photo-frame{width:260px;max-width:100%;margin:0;justify-self:end;padding:10px 11px 17px 0}
+    .hero-photo{display:block;width:100%;height:302px;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:36% 43%;border-radius:5px 5px 44px 5px;box-shadow:0 12px 36px rgba(0,0,30,.22)}
+    .hero-photo-frame::before{border-radius:5px 5px 49px 5px;bottom:7px;left:12px}
+    @media(max-width:760px){
+      .hero{padding:52px 0 72px}
+      .hero-grid{grid-template-columns:1fr;gap:25px}
+      .hero-title{font-size:clamp(1.82rem,6vw,2.6rem)}
+      .hero-desc{line-height:1.95}
+      .hero-photo-frame{width:200px;justify-self:center;margin:9px auto 0;padding:7px 9px 12px 0}
+      .hero-photo{height:218px;object-position:36% 42%;border-radius:5px 5px 35px 5px}
+      .hero-photo-frame::before{border-radius:5px 5px 39px 5px;bottom:4px}
+      .hero-sign .english{display:none}
+    }
+    @media(max-width:480px){
+      .hero-photo-frame{width:185px}
+      .hero-photo{height:199px}
+      .hero-title{font-size:clamp(1.78rem,7vw,2.05rem)}
     }
   </style>
 </head>
@@ -223,9 +230,10 @@
           <p class="hero-eyebrow">FOUNDER PROFILE — SPC</p>
           <h1 class="hero-title" id="profile-title">経験とAIで、<br>企業の可能性を<br><em>カタチにする。</em></h1>
           <p class="hero-desc">20年以上の中小企業支援経験と、最新のAI・Web技術を組み合わせて。経営者の想いに寄り添い、企業の強みを未来につなぐ仕組みづくりをお手伝いします。</p>
-          <div class="hero-sign"><img class="hero-avatar" src="matsumoto-profile.webp" width="112" height="112" alt="松本由也のプロフィール写真"><div><strong>松本 由也</strong><small>Smile Plus Consulting 代表<br>中小企業のAI・Web活用パートナー</small></div><span class="english">Yoshiya Matsumoto</span></div>
+          <div class="hero-sign"><div><strong>松本 由也</strong><small>Smile Plus Consulting 代表<br>中小企業のAI・Web活用パートナー</small></div><span class="english">Yoshiya Matsumoto</span></div>
           <div class="hero-actions"><a href="#message" class="btn btn-light">私の想いを読む <span aria-hidden="true">↘</span></a><a href="#contact" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,.4)">相談する <span aria-hidden="true">↗</span></a></div>
         </div>
+        <div class="hero-photo-frame"><img class="hero-photo" src="matsumoto-profile.webp" width="1536" height="1024" alt="SPC代表 松本由也。ネイビーのジャケットで自然に微笑むプロフィール写真" fetchpriority="high"></div>
         
       </div>
     </section>
